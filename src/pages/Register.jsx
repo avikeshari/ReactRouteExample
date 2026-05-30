@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router'
+import { Link , useNavigate } from 'react-router'
 
 const Register = () => {
 
@@ -21,8 +21,9 @@ const Register = () => {
       <input type='password' placeholder='Password' />
       <br />
       <button type='submit'>Register</button>
-      &nbsp;
-      <button onClick={() => navigate('/')}>Go back</button>
+      {/*&nbsp;*/}
+      <p>Already have an account? <Link to='/login'>Login</Link></p>
+      {/* <button onClick={() => navigate('/')}>Go back</button> */}
     </form>
   </div>
 }
