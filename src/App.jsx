@@ -6,6 +6,7 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import HomeWrap from './wrappers/HomeWrap.jsx'
 import recipesLoader from './loaders/recipesLoader.js'
+import RecipeDetails from './pages/RecipeDetails.jsx'
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
     element: <Dashboard />,
     loader: recipesLoader,
     hydrateFallbackElement: <p>Loading recipes...</p>
+  },
+  {
+    path: '/recipes/:id',
+    element: <RecipeDetails />
   }
 ]);
 
