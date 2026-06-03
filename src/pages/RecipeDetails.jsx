@@ -1,25 +1,28 @@
 import React from 'react'
-import { useParams } from 'react-router'
-import axios from 'axios'
+import { /*useParams ,*/ useLoaderData } from 'react-router'
+//import axios from 'axios'
 
 const RecipeDetails = () => {
 
-  const [recipe, setRecipe] = React.useState({});
+  //const [recipe, setRecipe] = React.useState({});
 
-  const { id } = useParams();
-  console.log(id); // Access the id parameter from the route
+  //const { id } = useParams();
+  const recipe = useLoaderData();
 
-  React.useEffect(() => {
+  /*React.useEffect(() => {
     // Here you can fetch the recipe details using the id
     // For example:
-    axios.get(`https://6a12d11d78d0434e0d5d82d0.mockapi.io/recipes/${id}`)
-      .then(response => {
+    const fetchRecipeDetails = async () => {
+      try {
+        const response = await axios.get(`https://6a12d11d78d0434e0d5d82d0.mockapi.io/recipes/${id}`);  
         setRecipe(response.data);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error fetching recipe details:', error);
-      });
-  }, []);
+      }
+    };
+
+    fetchRecipeDetails();
+  }, []);*/
 
   return (
     <div>

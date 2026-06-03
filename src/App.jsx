@@ -6,6 +6,7 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import HomeWrap from './wrappers/HomeWrap.jsx'
 import recipesLoader from './loaders/recipesLoader.js'
+import recipeLoader from './loaders/recipeLoader.js'
 import RecipeDetails from './pages/RecipeDetails.jsx'
 
 const router = createBrowserRouter([
@@ -35,7 +36,9 @@ const router = createBrowserRouter([
   },
   {
     path: '/recipes/:id',
-    element: <RecipeDetails />
+    element: <RecipeDetails />,
+    loader: recipeLoader,
+    hydrateFallbackElement: <p>Loading recipe details...</p>
   }
 ]);
 
