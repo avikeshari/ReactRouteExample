@@ -2,10 +2,13 @@ import React from 'react'
 import Recipe from '../components/Recipe';
 import axios from 'axios';
 import { useLoaderData } from 'react-router';
+import { AuthContext } from '../App.jsx';
 
 const Dashboard = () => {
 
   const recipes = useLoaderData();
+
+  const {user, setUser} = React.useContext(AuthContext);
   
   /*const [recipes, setRecipes] = React.useState([]);
 
@@ -21,6 +24,7 @@ const Dashboard = () => {
     }, [recipes]);
 
   return <div>
+    <p>Welcome to your dashboard {user ? user.name : 'Guest'}!</p>
     <h1>Dashboard</h1>
     <ul>
       {

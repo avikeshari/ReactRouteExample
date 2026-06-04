@@ -1,15 +1,17 @@
 import React from 'react'
 import { Link , useNavigate } from 'react-router'
+import { AuthContext } from '../App.jsx';
 
 const Login = () => {
   const navigate = useNavigate()
-
+  const {user, setUser} = React.useContext(AuthContext);
   return <div>
     <h1>Login</h1>
     <form onSubmit={(e) => {
       e.preventDefault();
       setTimeout(() => {
         console.log('Login successful!');
+        setUser({ name: 'John Doe' }); // Example user data
         navigate('/dashboard');
       }, 1000);
     }}>

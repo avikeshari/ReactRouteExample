@@ -43,9 +43,15 @@ const router = createBrowserRouter([
   }
 ]);
 
+export const AuthContext = React.createContext();
+
 const App = () => {
+  const [user, setUser] = React.useState(null);
+
   return <div>
-    <RouterProvider router={router} />
+    <AuthContext.Provider value={{ user, setUser }}>
+      <RouterProvider router={router} />
+    </AuthContext.Provider>
   </div>
 }
 
