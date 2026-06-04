@@ -5,6 +5,13 @@ import { AuthContext } from '../App.jsx';
 const Login = () => {
   const navigate = useNavigate()
   const {user, setUser} = React.useContext(AuthContext);
+
+  React.useEffect(() => {
+    if (user) {
+      navigate('/dashboard');
+    }
+  }, [user, navigate]);
+
   return <div>
     <h1>Login</h1>
     <form onSubmit={(e) => {
